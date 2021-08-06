@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="{% static '/css/Login.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <section>
+        <div class="form-container">
+            <h1>Login Form</h1>
+        <form action="{% url 'login' %}" method="POST">{% csrf_token %}
+            <div class="control">
+            <label for="name">Name</label>
+            <input type="text"  name="username2">
+            </div>
+            <div class="control">
+            <label for="psw">Password</label>
+            <input type="password"  name="password2">
+            </div>
+            {% if msg %}
+            <center><font color='yellow'>{{msg}}</font></center>
+            {% endif %}
+            
+            <div class="control">
+            <input type="submit" class="btn" value="Login">
+            </div>
+        </form>
+        <p>New here? <a href="{% url 'reg' %}">Sign up</a></p>
+        </div>
+    </section>
+</body>
+</html>
